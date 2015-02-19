@@ -14,8 +14,10 @@ cd virtualbox-cluster
 #### Bring up the three boxes:
 
 ```bash
-vagrant up
+./run.sh
 ```
+
+This runs `vagrant up`, but also some other stuff (to be merged into the Vagrantfile later)
 
 #### Log in to any of the three nodes (master, slave1 or slave2):
 
