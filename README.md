@@ -22,3 +22,8 @@ vagrant up
 ```bash
 vagrant ssh (master|slave1|slave2)
 ```
+
+### References
+
+- [Vagrant & Ansible Quickstart Tutorial](http://adamcod.es/2014/09/23/vagrant-ansible-quickstart-tutorial.html)
+- [Vagrant Virtual Machine Cluster](http://jessesnet.com/development-notes/2014/vagrant-virtual-machine-cluster)
