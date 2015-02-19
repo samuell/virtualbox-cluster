@@ -9,3 +9,13 @@
         with_items:
           - git
           - tig
+      - name: Set up hosts files on the nodes, for easier SSH:ing between them
+        lineinfile:
+          dest=/etc/hosts
+          insertafter=^127\.0\.0\.1
+          line={{ item }}
+          state=present
+        with_items:
+          - '10.2.2.2\ master'
+          - '10.2.2.4\ slave1'
+          - '10.2.2.6\ slave2'
