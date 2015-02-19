@@ -9,6 +9,12 @@
         with_items:
           - git
           - tig
+      - name: Install SSH key
+        authorized_key: 
+            user=vagrant 
+            path=/home/vagrant/.ssh/authorized_keys 
+            state=present
+            key="{{ lookup('file', 'id_rsa_virtualcluster.pub') }}"
       - name: Set up hosts files on the nodes, for easier SSH:ing between them
         lineinfile:
           dest=/etc/hosts
