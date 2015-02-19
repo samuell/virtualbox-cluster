@@ -25,3 +25,13 @@
           - '10.2.2.2\ master'
           - '10.2.2.4\ slave1'
           - '10.2.2.6\ slave2'
+      - name: Set up SSH agent and keys when logging in
+        lineinfile:
+          dest=/home/vagrant/.bashrc
+          insertafter={{ item.regexp }}
+          line={{ item.line }}
+          state=present
+        with_items:
+          - { regexp: EOF, line: '#\ VAGRANT' }
+          - { regexp: '\#\ VAGRANT', line: 'eval\ $(ssh-agent\ -s)' }
+          - { regexp: '^eval.*ssh-agent', line: 'ssh-add\ /vagrant/id_rsa_virtualcluster' }
