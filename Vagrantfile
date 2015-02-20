@@ -9,6 +9,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 		master.vm.box = "ubuntu/trusty64"
 		master.vm.network "forwarded_port", guest: 80, host: 8881
 		master.vm.provision :ansible do |ansible|
+			ansible.playbook = "playbook_genkeys.yml"
+		end
+		master.vm.provision :ansible do |ansible|
 			ansible.playbook = "playbook.yml"
 		end
 		master.vm.network "private_network", ip: "10.2.2.2"

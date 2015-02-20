@@ -1,0 +1,10 @@
+---
+- hosts: all
+  vars:
+      document_root: /vagrant
+  sudo: true
+  pre_tasks:
+      - name: Create SSH key
+        command: 
+            ssh-keygen -P '' -f /vagrant/id_rsa_virtualcluster
+            creates=/vagrant/id_rsa_virtualcluster
