@@ -11,18 +11,38 @@ git clone git@github.com:samuell/virtualbox-cluster.git
 cd virtualbox-cluster
 ```
 
+#### Optional: Turn on/off certain roles
+
+If you want to skip e.g. the scala installation, open up the playbook.yml file, and comment out the `- scala` line, under `roles`.
+
+E.g, change from:
+```yaml
+  roles:
+    - scala
+```
+
+to:
+```yaml
+  roles:
+    #- scala
+```
+
 #### Bring up the three boxes:
 
 ```bash
-./run.sh
+vagrant up
 ```
-
-This runs `vagrant up`, but also some other stuff (to be merged into the Vagrantfile later)
 
 #### Log in to any of the three nodes (master, slave1 or slave2):
 
 ```bash
 vagrant ssh (master|slave1|slave2)
+```
+
+Log in to nodes, from nodes:
+
+```bash
+ssh (master|slave1|slave2)
 ```
 
 ### References

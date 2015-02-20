@@ -5,7 +5,7 @@
       document_root: /vagrant
   pre_tasks:
       - name: Update apt cache
-        apt: update_cache=yes
+        apt: update_cache=yes cache_valid_time=3600
       - name: Install stuff from Aptitude
         apt: name={{ item }} state=installed
         with_items:
