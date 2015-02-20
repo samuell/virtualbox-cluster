@@ -8,7 +8,7 @@ A 3-Node Virtualbox cluster for quickly testing out distributed apps etc.
 - [Ansible](http://www.ansible.com/)
 - [VirtualBox](https://www.virtualbox.org/)
 
-### Installing the requirements in Ubuntu (tested with 14.04 LTS 64bit)
+### Installing the requirements in Ubuntu (tested with 14.04)
 
 1. Install Ansible and VirtualBox via apt:
 	```bash
