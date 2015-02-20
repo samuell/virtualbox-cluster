@@ -38,4 +38,6 @@
           - { regexp: '\#\ VAGRANT', line: 'eval\ $(ssh-agent\ -s)' }
           - { regexp: '^eval.*ssh-agent', line: 'ssh-add\ /vagrant/id_rsa_virtualcluster' }
   roles:
-    - scala
+    - { role: 'scala' }
+    - { role: 'java', java_major_version: '7' }
+    - { role: 'spark' }
