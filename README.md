@@ -2,7 +2,25 @@
 
 A 3-Node Virtualbox cluster for quickly testing out distributed apps etc.
 
-## Usage
+## Prerequisites
+
+- [Vagrant](https://www.vagrantup.com/)
+- [Ansible](http://www.ansible.com/)
+- [VirtualBox](https://www.virtualbox.org/)
+
+### Installing the requirements in Ubuntu (tested with 14.04 LTS 64bit)
+
+1. Install Ansible and VirtualBox via apt:
+	```bash
+	sudo apt-get install ansible virtualbox
+	```
+2. Download the proper .deb file from [vagrantup.com](https://www.vagrantup.com/downloads.html)
+3. Install it with:
+	```bash
+	sudo dpkg -i <deb-file>
+	```
+
+## Setup and Usage
 
 #### Clone the github repository:
 
