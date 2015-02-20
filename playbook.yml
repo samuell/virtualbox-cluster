@@ -3,7 +3,9 @@
   sudo: true
   vars:
       document_root: /vagrant
-  tasks:
+  pre_tasks:
+      - name: Update apt cache
+        apt: update_cache=yes
       - name: Install stuff from Aptitude
         apt: name={{ item }} state=installed
         with_items:
@@ -35,3 +37,5 @@
           - { regexp: EOF, line: '#\ VAGRANT' }
           - { regexp: '\#\ VAGRANT', line: 'eval\ $(ssh-agent\ -s)' }
           - { regexp: '^eval.*ssh-agent', line: 'ssh-add\ /vagrant/id_rsa_virtualcluster' }
+  roles:
+    - scala
