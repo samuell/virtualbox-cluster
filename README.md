@@ -10,12 +10,17 @@ A 3-Node Virtualbox cluster for quickly testing out distributed apps etc.
 
 ### Installing the requirements in Ubuntu (tested with 14.04)
 
-1. Install Ansible and VirtualBox via apt:
+1. Install Virtualbox:
 	```bash
-	sudo apt-get install ansible virtualbox
+	sudo apt-get install virtualbox
 	```
-2. Download the proper .deb file from [vagrantup.com](https://www.vagrantup.com/downloads.html)
-3. Install it with:
+2. Install a recent version of ansible:
+   ```bash
+   sudo apt-get install ansible/trusty-backports
+   ```
+   *(if you ubuntu version is "trusty", otherwise, replace it with your appropriate version)*
+3. Install Vagrant, by first downloadng the proper .deb file from [vagrantup.com](https://www.vagrantup.com/downloads.html)
+4. ... and then installing it with:
 	```bash
 	sudo dpkg -i <deb-file>
 	```
@@ -29,20 +34,21 @@ git clone git@github.com:samuell/virtualbox-cluster.git
 cd virtualbox-cluster
 ```
 
-#### Optional: Turn on/off certain roles
+#### Optional: Add/Enable roles
 
-If you want to skip e.g. the scala installation, open up the playbook.yml file, and comment out the `- scala` line, under `roles`.
+If you want install some roles, create a folder structure for a new role under `roles/` (at least a `roles/tasks/main.yml` 
+file), and activate it by listing it under `roles:` in playbook.yml. An example, "scala" role is included for illustration.
+To activate that, uncomment that role under `roles:`, by, changing from:
 
-E.g, change from:
 ```yaml
   roles:
-    - scala
+    #- scala
 ```
 
 to:
 ```yaml
   roles:
-    #- scala
+    - scala
 ```
 
 #### Bring up the three boxes:
